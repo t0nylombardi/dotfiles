@@ -1,1 +1,169 @@
-/Users/t0nylombardi/.config/dotfiles/gitconfig
+[user]
+	email = alombardi.331@gmail.com
+	name = t0nylombardi
+[alias]
+	c = commit -am
+	fpush = push --force
+	tpush = push  # typo: leftover t from git
+	s = status
+	ts = status # I do the `gi ts` typo all the time
+	sclone = clone --depth=1
+	amend = commit --amend --all --no-edit
+	undocommit = reset HEAD~
+	hreset = reset --hard
+	co = checkout
+	df = diff --color --color-words --abbrev
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit
+	cherrypick = cherry-pick
+	cp = cherry-pick
+	# i'm a merger in dev branches, but a squasher for landing to main.
+	mergegood = merge --no-ff
+
+	# If you do `git git status`, this sorts out the duplicate
+	git = !exec git
+
+	mergeorigin = !"git merge origin/$(git mainormaster)"
+
+	# Essentially GitHub's compare view: show all 'ahead' changes (incl working tree) vs the merge-base
+	diffbranch = !"git diff  $(git diffbase)"
+	# Diff of branch that's not checked out. Doesn't include working tree (but obv doesnt need to)
+	diffbranch-that = !"git diff origin/$(git mainormaster)...\"$1\" #"
+	# Show commit log of unique commits of this branch (not on main)
+	diffcommitsfrommain = !"git log --no-merges origin/$(git mainormaster).."
+
+	# I prefer these from my fish abbv's, but for bash we'll keep this as a fallback.
+	db = diffbranch
+	dbt = diffbranch-that
+
+	# Two utils:
+	#   What's the ancestor commit this branch shares with (the parent branch, or, more likely...) main?
+	#   diffbase = !"git config --get branch.$(command git symbolic-ref --short HEAD).base || git merge-base origin/$(git mainormaster) HEAD"
+	diffbase = !"git merge-base origin/$(git mainormaster) HEAD"
+	#   Is it a `main` or a `master` repo? Will default to main if neither is found.
+	mainormaster = !"(git branch --format '%(refname:short)' --sort=-committerdate --list master main; echo main) | head -n1 || echo main"
+
+[core]
+	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
+	precomposeUnicode = true
+	pager = delta
+
+[delta]
+	max-line-length = 700
+	# max-line-distance = 0.3 # better word-diff?
+	syntax-theme = base16
+	hyperlinks = true # i filed https://github.com/dandavison/delta/issues/362 but in 2022 i can't see brokenness in the issue nor repro weirdness. but i installed latest `less` anyway
+	                  # oh i found it. it doubles up the sha and adds some `8;;` at the end.
+					  # to fix.... install latest less (`less -V` should be >= v570). shouldn't need to set DELTA_PAGER.
+	# line-numbers = true # seems nice until you want to copypaste and they're there…
+	# navigate = true # eh. not great with short diffs.
+
+	file-style = bold yellow ul
+	file-decoration-style = yellow ol ul
+	hunk-header-decoration-style = blue
+	hunk-header-line-number-style = purple bold
+
+[interactive]
+	diffFilter = delta --color-only --features=interactive
+
+[diff]
+	# Show blocks of moved text of at least 20 alphanumeric characters differently than adds/deletes
+	# https://blog.github.com/2018-04-05-git-217-released/
+	colorMoved = default
+	# Detect copies in addition to renames
+	renames = copies
+	# A la `git submodule summary`
+	submodule = log
+
+# special hunk parsing for .pdl. https://mirrors.edge.kernel.org/pub/software/scm/git/docs/gitattributes.html#_defining_a_custom_hunk_header
+[diff "pdl"]
+	xfuncname = "^((experimental )*domain.*)"
+	xfuncname = "^  type.*"
+
+# so much color
+[color]
+	ui = auto
+[color "diff"]  # i still love these choices in 2022.
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+	newMoved = cyan dim
+	oldMoved = blue dim
+	newMovedAlternative = cyan italic
+	oldMovedAlternative = blue italic
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[color "diff-highlight"]  # mostly dead. only needed when using diff-so-fancy
+	oldNormal = red bold
+	oldHighlight = "red bold 52"
+	newNormal = "green bold"
+	newHighlight = "green bold 22"
+
+[log]
+	# https://github.com/git/git/commit/acdd37769de8b0fe37a74bfc0475b63bdc55e9dc
+	date = human
+
+# git mergetool
+[merge]
+	tool = opendiff
+	renameLimit = 0
+
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+[url "git://gist.github.com/"]
+	insteadOf = "gist:"
+
+# correct typos. also lol 'deciseconds': https://blog.gitbutler.com/why-is-git-autocorrect-too-fast-for-formula-one-drivers/
+[help]
+	autocorrect = "immediate"
+
+# push easily. http://stackoverflow.com/a/23918418/89484
+[push]
+	default = current
+	followTags = true
+	autoSetupRemote = true
+[pull]
+	ff = only
+	default = current
+[checkout]
+	defaultRemote = origin
+
+# use separate file for username / github token / etc
+[include]
+	path = ~/.gitconfig.local
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process
+
+[fetch]
+	prune = true
+
+[stash]
+	showPatch = true
+
+# faster git server communication.
+# like a LOT faster. https://opensource.googleblog.com/2018/05/introducing-git-protocol-version-2.html
+[protocol]
+	version = 2
+
+
+[advice]
+	detachedHead = false
+[init]
+	defaultBranch = main
