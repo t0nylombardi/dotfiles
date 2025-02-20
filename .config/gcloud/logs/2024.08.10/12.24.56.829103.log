@@ -1,0 +1,9 @@
+2024-08-10 12:24:56,830 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2024-08-10 12:24:56,831 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'configurations']
+2024-08-10 12:24:56,833 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'configurations', 'describe']
+2024-08-10 12:24:56,834 DEBUG    root            Running [gcloud.config.configurations.describe] with arguments: [--format: "value[separator=""](properties.core.account,properties.core.project)", CONFIGURATION_NAME: "default"]
+2024-08-10 12:24:56,836 DEBUG    root            Chosen display Format:default value[separator=""](properties.core.account,properties.core.project)
+2024-08-10 12:24:56,836 INFO     root            Display format: "default value[separator=""](properties.core.account,properties.core.project)"
+2024-08-10 12:24:56,868 INFO     ___FILE_ONLY___ alombardi.331@gmail.comassistant-425122
+
+2024-08-10 12:24:56,876 DEBUG    root            Metrics reporting process started...

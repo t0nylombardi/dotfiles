@@ -1,0 +1,13 @@
+2024-08-12 17:53:47,127 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2024-08-12 17:53:47,137 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'describe']
+2024-08-12 17:53:47,139 DEBUG    root            Running [gcloud.projects.describe] with arguments: [--account: "alombardi.331@gmail.com", --configuration: "default", --format: "value(name)", PROJECT_ID_OR_NUMBER: "assistant-425122"]
+2024-08-12 17:53:47,167 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2024-08-12 17:53:47,174 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2024-08-12 17:53:47,361 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2024-08-12 17:53:47,379 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2024-08-12 17:53:47,677 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/assistant-425122?alt=json HTTP/1.1" 200 None
+2024-08-12 17:53:47,680 DEBUG    root            Chosen display Format:default value(name)
+2024-08-12 17:53:47,680 INFO     root            Display format: "default value(name)"
+2024-08-12 17:53:47,742 INFO     ___FILE_ONLY___ assistant
+
+2024-08-12 17:53:47,752 DEBUG    root            Metrics reporting process started...

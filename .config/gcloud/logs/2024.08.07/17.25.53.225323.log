@@ -1,0 +1,18 @@
+2024-08-07 17:25:53,251 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2024-08-07 17:25:53,263 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'describe']
+2024-08-07 17:25:53,265 DEBUG    root            Running [gcloud.projects.describe] with arguments: [--account: "alombardi.331@gmail.com", --configuration: "default", --format: "value(name)", PROJECT_ID_OR_NUMBER: "assistant-425122"]
+2024-08-07 17:25:53,313 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2024-08-07 17:25:53,321 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2024-08-07 17:25:53,491 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2024-08-07 17:25:53,503 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2024-08-07 17:25:53,792 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/assistant-425122?alt=json HTTP/1.1" 200 None
+2024-08-07 17:25:53,794 DEBUG    root            Chosen display Format:default value(name)
+2024-08-07 17:25:53,794 INFO     root            Display format: "default value(name)"
+2024-08-07 17:25:53,852 INFO     ___FILE_ONLY___ assistant
+
+2024-08-07 17:25:53,854 DEBUG    root            Checking for updates...
+2024-08-07 17:25:53,858 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
+2024-08-07 17:25:53,985 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/components-2.json HTTP/1.1" 200 223380
+2024-08-07 17:25:54,066 DEBUG    root            Updating notification cache...
+2024-08-07 17:25:54,066 DEBUG    root            Activating notification: [default]
+2024-08-07 17:25:54,077 DEBUG    root            Metrics reporting process started...
