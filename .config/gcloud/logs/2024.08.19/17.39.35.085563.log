@@ -1,0 +1,10 @@
+2024-08-19 17:39:35,107 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2024-08-19 17:39:35,116 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'describe']
+2024-08-19 17:39:35,118 DEBUG    root            Running [gcloud.projects.describe] with arguments: [--account: "alombardi.331@gmail.com", --configuration: "default", --format: "value(name)", PROJECT_ID_OR_NUMBER: "assistant-425122"]
+2024-08-19 17:39:35,160 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2024-08-19 17:39:35,465 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/assistant-425122?alt=json HTTP/1.1" 200 None
+2024-08-19 17:39:35,468 DEBUG    root            Chosen display Format:default value(name)
+2024-08-19 17:39:35,469 INFO     root            Display format: "default value(name)"
+2024-08-19 17:39:35,537 INFO     ___FILE_ONLY___ assistant
+
+2024-08-19 17:39:35,546 DEBUG    root            Metrics reporting process started...

@@ -102,9 +102,12 @@ fi
 
 DOTFILES_DIR="$HOME/.config/dotfiles"
 
-# Load all `.zsh` or `.sh` files except `brew`, `install_symlinks.sh`, and `setup.sh`
-if [[ -d "$DOTFILES_DIR" ]]; then
-  for file in "$DOTFILES_DIR"/*.sh; do
+# Function to recursively source all .zsh and .sh files
+load_dotfiles() {
+  local dir="$1"
+
+  # Loop through files and directories recursively
+  find "$dir" -type f \( -name "*.sh" -o -name "*.zsh" \) | while read -r file; do
     case "$file" in
       "$DOTFILES_DIR/brew" | "$DOTFILES_DIR/install_symlinks.sh" | "$DOTFILES_DIR/setup.sh")
         continue  # Skip these files
@@ -112,7 +115,10 @@ if [[ -d "$DOTFILES_DIR" ]]; then
     esac
     [[ -r "$file" ]] && source "$file"
   done
-fi
+}
+
+# Load all dotfiles
+[[ -d "$DOTFILES_DIR" ]] && load_dotfiles "$DOTFILES_DIR"
 
 # ========================
 # 📌 ALIASES
