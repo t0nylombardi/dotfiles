@@ -1,0 +1,74 @@
+{
+	"name": "CamelCase",
+	"displayName": "CamelCase",
+	"description": "Camel case the selected text",
+	"version": "1.0.5",
+	"publisher": "MarioQueiros",
+	"author": {
+		"email": "mariopqueiros@gmail.com",
+		"name": "Mario Queiros",
+		"url": "https://marioqueiros.com"
+	},
+	"repository": {
+		"url": "https://github.com/MarioQueiros/CamelCase"
+	},
+	"engines": {
+		"vscode": "^1.31.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.camelCase"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.camelCase",
+				"title": "CamelCase"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "extension.camelCase",
+				"key": "ctrl+alt+c",
+				"linux": "ctrl+alt+c",
+				"mac": "ctrl+cmd+c"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "yarn run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.42",
+		"@types/node": "^10.17.49",
+		"tslint": "^5.20.1",
+		"typescript": "^3.9.7",
+		"vscode": "^1.1.37"
+	},
+	"dependencies": {
+		"@types/lodash": "^4.14.165",
+		"lodash": "^4.17.20",
+		"npm": "^6.14.10"
+	},
+	"__metadata": {
+		"id": "91067e8c-b3a1-4f4d-bb5e-78e514989d1d",
+		"publisherId": "14ed86e0-452c-41d9-af61-e771b702a726",
+		"publisherDisplayName": "MarioQueiros",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1737400058115,
+		"pinned": false,
+		"preRelease": false,
+		"source": "gallery",
+		"size": 24125368
+	}
+}

@@ -1,0 +1,47 @@
+{
+	"name": "simple-yard-snippets",
+	"displayName": "Simple YARD Snippets",
+	"description": "Speed up writing YARD comments.",
+	"publisher": "MichalZaporski",
+	"icon": "images/icon.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/MichalZaporski/simple-yard-snippets"
+	},
+	"keywords": [
+		"ruby",
+		"yard",
+		"snippet",
+		"snippets",
+		"comments"
+	],
+	"version": "1.1.0",
+	"engines": {
+		"vscode": "^1.71.0"
+	},
+	"categories": [
+		"Snippets"
+	],
+	"contributes": {
+		"snippets": [
+			{
+				"language": "ruby",
+				"path": "./snippets/snippets.code-snippets"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "14955f50-0413-4fd1-bfcd-f3efa1abcb4c",
+		"publisherId": "0b39199d-b217-4032-9f37-5e51a41995d1",
+		"publisherDisplayName": "Michał Zaporski",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1737225846949,
+		"pinned": false,
+		"preRelease": false,
+		"source": "gallery",
+		"size": 422678
+	}
+}
